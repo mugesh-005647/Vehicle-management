@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Vehicle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <div class="card shadow p-4">
+
+        <h3 class="text-center mb-4">Edit Vehicle</h3>
+
+        <!-- FLASH MESSAGE -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+
+            <div class="mb-3">
+                <label>Vehicle Number</label>
+                <input type="text"
+                       name="vehicle_no"
+                       value="{{ vehicle[1] }}"
+                       class="form-control"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label>Owner</label>
+                <select name="owner_id" class="form-control">
+
+                    {% for owner in owners %}
+                        <option value="{{ owner[0] }}"
+                        {% if owner[0] == vehicle[2] %}
+                            selected
+                        {% endif %}
+                        >
+                            {{ owner[1] }}
+                        </option>
+                    {% endfor %}
+
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label>Vehicle Type</label>
+                <input type="text"
+                       name="vehicle_type"
+                       value="{{ vehicle[3] }}"
+                       class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label>Model</label>
+                <input type="text"
+                       name="model"
+                       value="{{ vehicle[4] }}"
+                       class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label>Registration Date</label>
+                <input type="date"
+                       name="reg_date"
+                       value="{{ vehicle[5] }}"
+                       class="form-control">
+            </div>
+
+            <div class="d-flex justify-content-between">
+
+                <button type="submit"
+                        class="btn btn-success">
+                    Update Vehicle
+                </button>
+
+                <a href="/view_vehicle"
+                   class="btn btn-secondary">
+                   Cancel
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

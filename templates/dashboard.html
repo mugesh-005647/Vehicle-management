@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f5f7fb;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .topbar {
+            background: #4e73df;
+            color: white;
+            padding: 15px 25px;
+        }
+
+        /* FLEX GRID FIX */
+        .dashboard-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* CENTER ALL CARDS */
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card-box {
+            width: 250px;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-box i {
+            font-size: 35px;
+            margin-bottom: 10px;
+            color: #4e73df;
+        }
+
+        .btn-custom {
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="topbar d-flex justify-content-between">
+    <h5>🚗 Admin Dashboard</h5>
+    <span>Welcome, {{ admin }}</span>
+</div>
+
+<div class="container">
+
+    <div class="dashboard-grid">
+
+        <div class="card-box">
+            <i class="bi bi-person-plus"></i>
+            <h5>Add Owner</h5>
+            <a href="/add_owner" class="btn btn-primary btn-sm btn-custom">Open</a>
+        </div>
+
+        <div class="card-box">
+            <i class="bi bi-people"></i>
+            <h5>View Owners</h5>
+            <a href="/view_owner" class="btn btn-success btn-sm btn-custom">Open</a>
+        </div>
+
+        <div class="card-box">
+            <i class="bi bi-car-front"></i>
+            <h5>Add Vehicle</h5>
+            <a href="/add_vehicle" class="btn btn-warning btn-sm btn-custom">Open</a>
+        </div>
+
+        <div class="card-box">
+            <i class="bi bi-table"></i>
+            <h5>View Vehicles</h5>
+            <a href="/view_vehicle" class="btn btn-info btn-sm btn-custom">Open</a>
+        </div>
+
+        <div class="card-box">
+            <i class="bi bi-box-arrow-right"></i>
+            <h5>Logout</h5>
+            <a href="/logout" class="btn btn-danger btn-sm btn-custom">Logout</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
